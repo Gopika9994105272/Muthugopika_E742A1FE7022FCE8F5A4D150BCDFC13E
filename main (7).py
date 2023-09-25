@@ -1,41 +1,22 @@
-"""Implement a class called Bankaccount that represents a bank account.The class should have private
-attributes for account number,account holder name,and account balance. Include methods to 
-deposit money,withdraw money,and display the account balance.Ensure that the account balance
-cannot be accessed directly from outsidethe class.Write a program to create an instance of the 
-Bank account class and test the deposit and withdrawl functionality"""
+"""""
+Write a function called linear_search_product that takes the list of products and a target product name as input. The function should perform a linear search to find the target product in the list and return a list of indices of all occurrences of the product if found, or an empty list if the product is not found.
+"""
+
+def linearSearchProduct(productList, targetProduct):
+  indices = []
+
+  for index, product in enumerate(productList): 
+    if product == targetProduct:
+      indices.append(index)
+
+  return indices
 
 
+#Example usage:
 
-class BankAccount:
+products = ["shoes", "boot", "loafer", "shoes", "sandal",
+"shoes"]
 
-  def __init__(self, account_number,account_holder_name,initial_balance=0.0):
-    self.__account_number = account_number
-    self.__account_holder_name = account_holder_name
-    self.__account_balance = initial_balance
-
-  def deposit(self, amount):
-    if amount > 0:
-      self.__account_balance += amount
-      print("Deposited ₹{}. New balance: ₹{}".format(amount,                                                                                  self.__account_balance))
-    else:
-      print("Invalid withdrawl amount or insufficient balance. ")
-    
-  def withdraw(self, amount):
-    if amount > 0 and amount <= self.__account_balance:
-        self.__account_balance -= amount
-        print("Withdraw ₹{}.New balance :₹{} ".format(amount,self.__account_balance))
-    
-    else:
-      print("Invalid withdrawl amount or insufficient balance.")
-    
-  def display_balance(self):
-      print("Account balance for {} (Account #{}) : ₹{}".format(self.__account_holder_name, self.__account_number, self.__account_balance))
-
-#create an instance of the BankAccount class
-account = BankAccount(account_number="350073782822",account_holder_name="gopi",initial_balance=5000.0)
-
-#test deposit and withdrawl funtionality
-account.display_balance()
-account.deposit(500.0)
-account.withdraw(100.0)
-account.display_balance()
+target = "shoes"
+result = linearSearchProduct(products, target)
+print(result)
